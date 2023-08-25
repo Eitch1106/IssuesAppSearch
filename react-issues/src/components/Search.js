@@ -6,7 +6,6 @@ function SearchBugs() {
     const [keyword, setKeyword] = useState('');
     
     useEffect(() => {
-      // Borrar la palabra clave y la lista de errores cuando la página se carga o recarga
       setKeyword('');
       setInputValue('');
     }, []);
@@ -14,6 +13,13 @@ function SearchBugs() {
     const handleSearch = () => {
       setKeyword(inputValue);
     };
+
+    const handleKeyDown  = (event) => {
+      if (event.key === "Enter") {
+        handleSearch();
+      }
+    };
+
   return (
     <article data-theme="dark">
       <div className="container flex flex-col items-center justify-center min-h-screen bg-primary">
@@ -26,6 +32,7 @@ function SearchBugs() {
               className="flex-grow border rounded-l-md px-4 py-2 focus:outline-none"
               placeholder="Enter a keyword"
               onChange={(event) => setInputValue(event.target.value)}
+              onKeyDown={handleKeyDown}
             />
             <button
               className="bg-blue-500 text-white rounded-r-md px-6 py-3 focus:outline-none hover:bg-blue-600 transition duration-300"

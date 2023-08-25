@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const GITHUB_API_URL = 'https://api.github.com';
 //se tuvo que usar aquí el token porque al crearlo en el .env no funcionaba por detalles de commpilación
-const ACCESS_TOKEN = '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';//agrega aquí tu token personal creado en GITHUB
+const ACCESS_TOKEN = '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';//agrega aquí tu token personal creado en GITHUB
 
 const axiosInstance = axios.create({
   baseURL: GITHUB_API_URL,

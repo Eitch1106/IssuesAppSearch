@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { searchBugs } from "../api/ApiGithub";
+import Detail from "./Details";
 
 const BugList = (props) => {
   const [bugs, setBugs] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [selectedBug, setSelectedBug] = useState(null);
 
   const fetchMoreData = async () => {
     try {
@@ -49,6 +51,7 @@ const BugList = (props) => {
     return null;
   }
 
+  
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
@@ -60,10 +63,12 @@ const BugList = (props) => {
           className={`mb-4 bug-item ${index > 0 ? "fade" : ""}`} 
           style={{ borderBottom: "1px solid gray", padding: "1rem" }}>
             <a
-              href={bug.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
+               href="#"
               className="text-blue-500 hover:underline text-lg font-semibold"
+              onClick={(event) => {
+                event.preventDefault();
+                setSelectedBug(bug);
+              }}
             >
             {bug.title}
             </a>
@@ -71,11 +76,12 @@ const BugList = (props) => {
               <p className="text-gray-600">{bug.labels[0].description}</p>
             )}
             <p className="text-sm text-gray-500">
-              Created by {bug.author} on {bug.created_at}
+              Created by {bug.user.login} on {bug.created_at}
             </p>
           </li>
         ))}
       </ul>
+      {selectedBug && <Detail bug={selectedBug} onClose={() => setSelectedBug(null)} />}
     </div>
   );
 };
