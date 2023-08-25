@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BugList from "./Results";
 
 function SearchBugs() {
     const [inputValue, setInputValue] = useState('');
     const [keyword, setKeyword] = useState('');
+    
+    useEffect(() => {
+      // Borrar la palabra clave y la lista de errores cuando la página se carga o recarga
+      setKeyword('');
+      setInputValue('');
+    }, []);
+  
     const handleSearch = () => {
-      // Actualizar el estado 'keyword' con el valor actual del input
       setKeyword(inputValue);
     };
   return (
