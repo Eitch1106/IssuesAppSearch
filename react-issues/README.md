@@ -2,13 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Install
 
-In the project directory, you can run:
+Deberás clonar el repositorio, y ejecutar dentro del proyecto:
+### `npm install`
 
+Para asegurarnos de que se instalen las dependencias utilizadas, y posterior ejecutar:
 ### `npm start`
 
-Search-Issues webapp
+# Search-Issues webapp
 
 ## Descripción
 
@@ -27,10 +29,10 @@ El diseño se centró en mostrarlo lo más minimalista posible, por ello se hizo
 ## Código & Funciones
 
 En la codificación, se hizo uso de los hooks más comunes para el manejo correcto de eventos que se necesitaban manipular y así obtener los resultados deseados.
+También utilicé Axios para la interacción con la API por facilidad que te brinda.
 
 No se hizo uso del archivo `.env` ya que se creó el proyecto con `create-react-app` y al añadir el archivo deseado para manipular el token no lo compilaba bien.
 
 ## Nota
 
 Deberás crear un TOKEN personal de GitHub para que lo añadas en el archivo `ApiGithub.js` donde viene comentada la línea donde deberás hacerlo.
-
